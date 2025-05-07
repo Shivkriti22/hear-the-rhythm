@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,14 +62,31 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+        music: {
+          dark: "#1A1F2C",
+          purple: "#8B5CF6",
+          "light-purple": "#D6BCFA",
+          "med-purple": "#9b87f5",
+          "deep-purple": "#7E69AB",
+          accent: "#F97316",
+          background: "#121212",
+        }
 			},
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'hero-pattern': 'linear-gradient(to bottom, rgba(26, 31, 44, 0.8), rgba(26, 31, 44, 0.9)), url("/music-bg.jpg")',
+      },
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			keyframes: {
+        'wave': {
+          '0%, 100%': { transform: 'scaleY(1)' },
+          '50%': { transform: 'scaleY(2)' },
+        },
 				'accordion-down': {
 					from: {
 						height: '0'
@@ -87,6 +105,10 @@ export default {
 				}
 			},
 			animation: {
+        'wave-1': 'wave 1s ease-in-out infinite',
+        'wave-2': 'wave 1.3s ease-in-out infinite',
+        'wave-3': 'wave 0.8s ease-in-out infinite',
+        'wave-4': 'wave 1.5s ease-in-out infinite',
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out'
 			}
