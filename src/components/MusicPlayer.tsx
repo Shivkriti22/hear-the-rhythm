@@ -5,7 +5,7 @@ import { Play, Pause, SkipBack, SkipForward, Volume2, Repeat, Shuffle } from 'lu
 import { useToast } from "@/hooks/use-toast";
 
 // Sample track data
-const tracks = [
+const defaultTracks = [
   {
     id: 1,
     title: "Urban Rhythms",
@@ -24,13 +24,60 @@ const tracks = [
 
 const MusicPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTrack, setCurrentTrack] = useState(tracks[0]);
+  const [currentTrack, setCurrentTrack] = useState(defaultTracks[0]);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [volume, setVolume] = useState(70);
+  const [tracks, setTracks] = useState(defaultTracks);
   
   const audioRef = useRef<HTMLAudioElement>(null);
   const { toast } = useToast();
+  
+  useEffect(() => {
+    // Listen for song play events from Browse page
+    const handlePlaySong = (event) => {
+      const songData = event.detail;
+      
+      // Check if this song is already in our tracks list
+      let songTrack = tracks.find(track => track.id === songData.id);
+      
+      // If not, add it to our tracks
+      if (!songTrack) {
+        songTrack = {
+          id: songData.id,
+          title: songData.title,
+          artist: songData.artist,
+          src: songData.src,
+          img: songData.img
+        };
+        setTracks(prevTracks => [...prevTracks, songTrack]);
+      }
+      
+      // Set as current track and play
+      setCurrentTrack(songTrack);
+      setIsPlaying(true);
+      
+      // Need to wait for state update before playing
+      setTimeout(() => {
+        if (audioRef.current) {
+          audioRef.current.play().catch(error => {
+            console.error("Audio playback error:", error);
+            toast({
+              title: "Playback Error",
+              description: "There was an issue playing this track. Please try again.",
+              variant: "destructive"
+            });
+          });
+        }
+      }, 100);
+    };
+    
+    window.addEventListener('playSong', handlePlaySong);
+    
+    return () => {
+      window.removeEventListener('playSong', handlePlaySong);
+    };
+  }, [tracks, toast]);
   
   useEffect(() => {
     // Update duration when track changes

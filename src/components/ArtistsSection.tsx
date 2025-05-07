@@ -27,27 +27,39 @@ const ArtistsSection = () => {
   const artists = [
     {
       id: 1,
-      name: 'Eliza Moon',
-      imageUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=2064&auto=format&fit=crop',
-      genre: 'Electronic Pop'
+      name: 'Lana Del Rey',
+      imageUrl: 'https://images.unsplash.com/photo-1522609925277-66fea332c575?q=80&w=2156&auto=format&fit=crop',
+      genre: 'Alternative Pop'
     },
     {
       id: 2,
-      name: 'Marcus Wave',
-      imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop',
-      genre: 'Ambient'
+      name: 'Taylor Swift',
+      imageUrl: 'https://images.unsplash.com/photo-1554151228-14d9def656e4?q=80&w=2186&auto=format&fit=crop',
+      genre: 'Pop'
     },
     {
       id: 3,
-      name: 'The Echoes',
-      imageUrl: 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=2070&auto=format&fit=crop',
-      genre: 'Indie Rock'
+      name: 'Arijit Singh',
+      imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop',
+      genre: 'Bollywood'
     },
     {
       id: 4,
-      name: 'Synthia Blake',
-      imageUrl: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=2187&auto=format&fit=crop',
-      genre: 'Synth Pop'
+      name: 'Vishal Mishra',
+      imageUrl: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=2187&auto=format&fit=crop',
+      genre: 'Bollywood'
+    },
+    {
+      id: 5,
+      name: 'Yo Yo Honey Singh',
+      imageUrl: 'https://images.unsplash.com/photo-1548372290-8d01b6c8e78c?q=80&w=2069&auto=format&fit=crop', 
+      genre: 'Hip-Hop/Rap'
+    },
+    {
+      id: 6,
+      name: 'Marcus Wave',
+      imageUrl: 'https://images.unsplash.com/photo-1508341591423-4347099e1f19?q=80&w=2187&auto=format&fit=crop',
+      genre: 'Ambient'
     }
   ];
 
@@ -58,7 +70,7 @@ const ArtistsSection = () => {
           <h2 className="text-3xl font-bold text-white">Popular Artists</h2>
           <a href="#" className="text-music-purple hover:text-music-light-purple transition-colors">View All</a>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-10">
           {artists.map(artist => (
             <ArtistCard 
               key={artist.id} 

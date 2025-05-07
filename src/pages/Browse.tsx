@@ -6,8 +6,12 @@ import MusicPlayer from '@/components/MusicPlayer';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from "@/components/ui/table";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Headphones, Play } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const Browse = () => {
+  const { toast } = useToast();
+  
+  // Reduce to 15 songs
   const famousSongs = [
     {
       id: 1,
@@ -16,7 +20,8 @@ const Browse = () => {
       album: "A Night at the Opera",
       year: "1975",
       duration: "5:55",
-      imageUrl: "https://images.unsplash.com/photo-1513829596324-4bb2800c5efb?q=80&w=2070&auto=format&fit=crop"
+      imageUrl: "https://images.unsplash.com/photo-1513829596324-4bb2800c5efb?q=80&w=2070&auto=format&fit=crop",
+      audioSrc: "https://storage.googleapis.com/lovable-media/urban_rhythm_sample.mp3"
     },
     {
       id: 2,
@@ -25,7 +30,8 @@ const Browse = () => {
       album: "Imagine",
       year: "1971",
       duration: "3:03",
-      imageUrl: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=2070&auto=format&fit=crop"
+      imageUrl: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=2070&auto=format&fit=crop",
+      audioSrc: "https://storage.googleapis.com/lovable-media/midnight_dreams_sample.mp3"
     },
     {
       id: 3,
@@ -34,7 +40,8 @@ const Browse = () => {
       album: "Hey Jude",
       year: "1968",
       duration: "7:11",
-      imageUrl: "https://images.unsplash.com/photo-1461784180009-21121b2f204c?q=80&w=2070&auto=format&fit=crop"
+      imageUrl: "https://images.unsplash.com/photo-1461784180009-21121b2f204c?q=80&w=2070&auto=format&fit=crop",
+      audioSrc: "https://storage.googleapis.com/lovable-media/urban_rhythm_sample.mp3"
     },
     {
       id: 4,
@@ -43,7 +50,8 @@ const Browse = () => {
       album: "Thriller",
       year: "1982",
       duration: "4:54",
-      imageUrl: "https://images.unsplash.com/photo-1485579149621-3123dd979885?q=80&w=2069&auto=format&fit=crop"
+      imageUrl: "https://images.unsplash.com/photo-1485579149621-3123dd979885?q=80&w=2069&auto=format&fit=crop",
+      audioSrc: "https://storage.googleapis.com/lovable-media/midnight_dreams_sample.mp3"
     },
     {
       id: 5,
@@ -52,7 +60,8 @@ const Browse = () => {
       album: "Hotel California",
       year: "1977",
       duration: "6:30",
-      imageUrl: "https://images.unsplash.com/photo-1515552726023-7125c8d07fb3?q=80&w=2092&auto=format&fit=crop"
+      imageUrl: "https://images.unsplash.com/photo-1515552726023-7125c8d07fb3?q=80&w=2092&auto=format&fit=crop",
+      audioSrc: "https://storage.googleapis.com/lovable-media/urban_rhythm_sample.mp3"
     },
     {
       id: 6,
@@ -61,7 +70,8 @@ const Browse = () => {
       album: "Appetite for Destruction",
       year: "1987",
       duration: "5:56",
-      imageUrl: "https://images.unsplash.com/photo-1598387993281-cecf8b71a8f8?q=80&w=2076&auto=format&fit=crop"
+      imageUrl: "https://images.unsplash.com/photo-1598387993281-cecf8b71a8f8?q=80&w=2076&auto=format&fit=crop",
+      audioSrc: "https://storage.googleapis.com/lovable-media/midnight_dreams_sample.mp3"
     },
     {
       id: 7,
@@ -70,7 +80,8 @@ const Browse = () => {
       album: "Highway 61 Revisited",
       year: "1965",
       duration: "6:13",
-      imageUrl: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=2070&auto=format&fit=crop"
+      imageUrl: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=2070&auto=format&fit=crop",
+      audioSrc: "https://storage.googleapis.com/lovable-media/urban_rhythm_sample.mp3"
     },
     {
       id: 8,
@@ -79,7 +90,8 @@ const Browse = () => {
       album: "Nevermind",
       year: "1991",
       duration: "5:01",
-      imageUrl: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=2070&auto=format&fit=crop"
+      imageUrl: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=2070&auto=format&fit=crop",
+      audioSrc: "https://storage.googleapis.com/lovable-media/midnight_dreams_sample.mp3"
     },
     {
       id: 9,
@@ -88,7 +100,8 @@ const Browse = () => {
       album: "Help!",
       year: "1965",
       duration: "2:05",
-      imageUrl: "https://images.unsplash.com/photo-1468164016595-6108e4c60c8b?q=80&w=2070&auto=format&fit=crop"
+      imageUrl: "https://images.unsplash.com/photo-1468164016595-6108e4c60c8b?q=80&w=2070&auto=format&fit=crop",
+      audioSrc: "https://storage.googleapis.com/lovable-media/urban_rhythm_sample.mp3"
     },
     {
       id: 10,
@@ -97,7 +110,8 @@ const Browse = () => {
       album: "Led Zeppelin IV",
       year: "1971",
       duration: "8:02",
-      imageUrl: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?q=80&w=2070&auto=format&fit=crop"
+      imageUrl: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?q=80&w=2070&auto=format&fit=crop",
+      audioSrc: "https://storage.googleapis.com/lovable-media/midnight_dreams_sample.mp3"
     },
     {
       id: 11,
@@ -106,7 +120,8 @@ const Browse = () => {
       album: "Metallica (The Black Album)",
       year: "1991",
       duration: "6:28",
-      imageUrl: "https://images.unsplash.com/photo-1499415479124-43c32433a620?q=80&w=2069&auto=format&fit=crop"
+      imageUrl: "https://images.unsplash.com/photo-1499415479124-43c32433a620?q=80&w=2069&auto=format&fit=crop",
+      audioSrc: "https://storage.googleapis.com/lovable-media/urban_rhythm_sample.mp3"
     },
     {
       id: 12,
@@ -115,7 +130,8 @@ const Browse = () => {
       album: "What's The Story Morning Glory?",
       year: "1995",
       duration: "4:18",
-      imageUrl: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=2074&auto=format&fit=crop"
+      imageUrl: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=2074&auto=format&fit=crop",
+      audioSrc: "https://storage.googleapis.com/lovable-media/midnight_dreams_sample.mp3"
     },
     {
       id: 13,
@@ -124,7 +140,8 @@ const Browse = () => {
       album: "Synchronicity",
       year: "1983",
       duration: "4:13",
-      imageUrl: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=2070&auto=format&fit=crop"
+      imageUrl: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=2070&auto=format&fit=crop",
+      audioSrc: "https://storage.googleapis.com/lovable-media/urban_rhythm_sample.mp3"
     },
     {
       id: 14,
@@ -133,7 +150,8 @@ const Browse = () => {
       album: "The Wall",
       year: "1979",
       duration: "6:23",
-      imageUrl: "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?q=80&w=2069&auto=format&fit=crop"
+      imageUrl: "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?q=80&w=2069&auto=format&fit=crop",
+      audioSrc: "https://storage.googleapis.com/lovable-media/midnight_dreams_sample.mp3"
     },
     {
       id: 15,
@@ -142,54 +160,31 @@ const Browse = () => {
       album: "Like a Prayer",
       year: "1989",
       duration: "5:41",
-      imageUrl: "https://images.unsplash.com/photo-1526218626217-dc65a29bb444?q=80&w=2070&auto=format&fit=crop"
-    },
-    {
-      id: 16,
-      title: "Purple Haze",
-      artist: "Jimi Hendrix",
-      album: "Are You Experienced",
-      year: "1967",
-      duration: "2:50",
-      imageUrl: "https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=2070&auto=format&fit=crop"
-    },
-    {
-      id: 17,
-      title: "Thriller",
-      artist: "Michael Jackson",
-      album: "Thriller",
-      year: "1982",
-      duration: "5:57",
-      imageUrl: "https://images.unsplash.com/photo-1618609377864-68609b857e90?q=80&w=2070&auto=format&fit=crop"
-    },
-    {
-      id: 18,
-      title: "Creep",
-      artist: "Radiohead",
-      album: "Pablo Honey",
-      year: "1993",
-      duration: "3:58",
-      imageUrl: "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?q=80&w=2070&auto=format&fit=crop"
-    },
-    {
-      id: 19,
-      title: "Let It Be",
-      artist: "The Beatles",
-      album: "Let It Be",
-      year: "1970",
-      duration: "4:03",
-      imageUrl: "https://images.unsplash.com/photo-1493936734716-761b99304301?q=80&w=2068&auto=format&fit=crop"
-    },
-    {
-      id: 20,
-      title: "Hallelujah",
-      artist: "Leonard Cohen",
-      album: "Various Positions",
-      year: "1984",
-      duration: "4:36",
-      imageUrl: "https://images.unsplash.com/photo-1499415479124-43c32433a620?q=80&w=2069&auto=format&fit=crop"
-    },
+      imageUrl: "https://images.unsplash.com/photo-1526218626217-dc65a29bb444?q=80&w=2070&auto=format&fit=crop",
+      audioSrc: "https://storage.googleapis.com/lovable-media/urban_rhythm_sample.mp3"
+    }
   ];
+
+  // Create a function to play music on MusicPlayer
+  const playMusic = (song) => {
+    // Dispatch a custom event that MusicPlayer will listen for
+    const event = new CustomEvent('playSong', { 
+      detail: { 
+        id: song.id,
+        title: song.title,
+        artist: song.artist,
+        src: song.audioSrc,
+        img: song.imageUrl
+      } 
+    });
+    
+    window.dispatchEvent(event);
+    
+    toast({
+      title: "Now Playing",
+      description: `${song.title} by ${song.artist}`,
+    });
+  };
 
   return (
     <div className="min-h-screen bg-music-background text-white">
@@ -205,7 +200,7 @@ const Browse = () => {
           </CardHeader>
           <CardContent>
             <p className="text-gray-400 mb-4">
-              Discover 20 of the most iconic English songs of all time, from classic rock to pop hits.
+              Discover 15 of the most iconic English songs of all time, from classic rock to pop hits.
             </p>
           </CardContent>
         </Card>
@@ -227,7 +222,8 @@ const Browse = () => {
               {famousSongs.map((song, index) => (
                 <TableRow 
                   key={song.id}
-                  className="border-b border-gray-800/50 hover:bg-white/5 group"
+                  className="border-b border-gray-800/50 hover:bg-white/5 group cursor-pointer"
+                  onClick={() => playMusic(song)}
                 >
                   <TableCell className="font-medium text-gray-400">
                     {index + 1}
