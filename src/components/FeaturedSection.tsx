@@ -1,6 +1,7 @@
 
 import React from 'react';
 import AlbumCard from './AlbumCard';
+import { Link } from "react-router-dom";
 
 const FeaturedSection = () => {
   const featuredAlbums = [
@@ -47,7 +48,7 @@ const FeaturedSection = () => {
       <div className="container mx-auto px-6">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-3xl font-bold text-white">Featured Albums</h2>
-          <a href="#" className="text-music-purple hover:text-music-light-purple transition-colors">View All</a>
+          <Link to="/browse" className="text-music-purple hover:text-music-light-purple transition-colors">View All</Link>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
           {featuredAlbums.map(album => (

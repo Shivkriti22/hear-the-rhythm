@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { Play } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const NewReleases = () => {
   const newReleases = [
@@ -47,7 +47,7 @@ const NewReleases = () => {
       <div className="container mx-auto px-6">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-3xl font-bold text-white">New Releases</h2>
-          <a href="#" className="text-music-purple hover:text-music-light-purple transition-colors">View All</a>
+          <Link to="/browse" className="text-music-purple hover:text-music-light-purple transition-colors">Browse All</Link>
         </div>
         
         <div className="bg-music-dark/50 backdrop-blur-lg rounded-xl p-6">
