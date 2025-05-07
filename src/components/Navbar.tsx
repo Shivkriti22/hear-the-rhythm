@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Music } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,18 +12,18 @@ const Navbar = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <a href="#" className="flex items-center gap-2">
+            <Link to="/" className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
                 <Music className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-bold text-white">MusicScape</span>
-            </a>
+            </Link>
           </div>
           
           {/* Desktop navigation */}
           <div className="hidden md:block">
             <div className="flex items-center space-x-2">
-              <a href="#" className="nav-link active">Home</a>
+              <Link to="/" className="nav-link active">Home</Link>
               <a href="#discover" className="nav-link">Discover</a>
               <a href="#playlists" className="nav-link">Playlists</a>
               <a href="#artists" className="nav-link">Artists</a>
@@ -30,9 +31,11 @@ const Navbar = () => {
           </div>
           
           <div className="hidden md:block">
-            <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
-              Sign In
-            </Button>
+            <Link to="/auth">
+              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
+                Sign In
+              </Button>
+            </Link>
           </div>
           
           {/* Mobile menu button */}
@@ -61,14 +64,16 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-music-dark border-t border-gray-800">
-            <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900">Home</a>
+            <Link to="/" className="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900">Home</Link>
             <a href="#discover" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Discover</a>
             <a href="#playlists" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Playlists</a>
             <a href="#artists" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Artists</a>
             <div className="pt-2">
-              <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
-                Sign In
-              </Button>
+              <Link to="/auth">
+                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
+                  Sign In
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
